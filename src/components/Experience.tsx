@@ -1,5 +1,6 @@
 import { Briefcase, Calendar } from "lucide-react";
 import { Card } from "./ui/card";
+import { ScrollArea } from "./ui/scroll-area";
 
 const experiences = [
   {
@@ -65,6 +66,78 @@ const experiences = [
     description: [
       "Delivered multiple applications in a Scrum environment as a Business Analyst and Scrum Master."
     ]
+  },
+  {
+    period: "12/2017 - 12/2018",
+    title: "SME of Payroll and Reward System",
+    company: "Bank Negara Indonesia",
+    description: [
+      "Served as Subject Matter Expert for Payroll and Reward System."
+    ]
+  },
+  {
+    period: "08/2016 - 11/2017",
+    title: "Product Manager/Project Manager",
+    company: "Indivara (Jatis Group)",
+    description: [
+      "Managed internal project and product as Product Manager/Project Manager."
+    ]
+  },
+  {
+    period: "02/2014 - 01/2016",
+    title: "Oracle HRMS Payroll Consultant",
+    company: "Perusahaan Gas Negara",
+    description: [
+      "Consulted on Oracle HRMS Payroll solutions and implementations."
+    ]
+  },
+  {
+    period: "09/2013 - 01/2014",
+    title: "Oracle HRMS Payroll Consultant",
+    company: "Stone Apple Solutions",
+    description: [
+      "Provided Oracle consulting services."
+    ]
+  },
+  {
+    period: "08/2009 - 08/2013",
+    title: "Oracle Consultant",
+    company: "Jatis Solutions",
+    description: [
+      "Attended to Oracle consulting needs for various clients."
+    ]
+  },
+  {
+    period: "10/2005 - 07/2009",
+    title: "Programmer",
+    company: "VICO Indonesia",
+    description: [
+      "Worked as a PHP programmer for various projects."
+    ]
+  },
+  {
+    period: "06/2005 - 09/2005",
+    title: "System Analyst",
+    company: "QXPoint",
+    description: [
+      "Designed and analyzed systems."
+    ]
+  },
+  {
+    period: "03/2005 - 06/2005",
+    title: "Programmer",
+    company: "indo.com",
+    description: [
+      "Performed programming tasks."
+    ]
+  },
+  {
+    period: "08/2004 - 02/2005",
+    title: "Oracle Developer",
+    company: "Sisindosat",
+    description: [
+      "Developed and maintained Oracle solutions."
+    ]
   }
 ];
 
@@ -73,46 +146,48 @@ const Experience = () => {
     <section id="experience" className="py-20 relative">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-3 mb-12">
+          <div className="flex items-center gap-3 mb-8">
             <Briefcase className="w-8 h-8 text-primary" />
             <h2 className="font-heading text-4xl md:text-5xl font-bold">Experience</h2>
           </div>
           
-          <div className="space-y-8">
-            {experiences.map((exp, index) => (
-              <Card 
-                key={index} 
-                className="p-6 bg-card border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 group"
-              >
-                <div className="flex flex-col md:flex-row md:items-start gap-4">
-                  <div className="flex-shrink-0">
-                    <div className="flex items-center gap-2 bg-primary/10 border border-primary/20 px-3 py-1.5 rounded-full">
-                      <Calendar className="w-4 h-4 text-primary" />
-                      <span className="text-sm font-medium text-primary">{exp.period}</span>
+          <ScrollArea className="h-[600px] pr-4">
+            <div className="space-y-8">
+              {experiences.map((exp, index) => (
+                <Card 
+                  key={index} 
+                  className="p-6 bg-card border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 group"
+                >
+                  <div className="flex flex-col md:flex-row md:items-start gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="flex items-center gap-2 bg-primary/10 border border-primary/20 px-3 py-1.5 rounded-full">
+                        <Calendar className="w-4 h-4 text-primary" />
+                        <span className="text-sm font-medium text-primary">{exp.period}</span>
+                      </div>
+                    </div>
+                    
+                    <div className="flex-grow">
+                      <h3 className="font-heading text-xl font-semibold mb-1 group-hover:text-primary transition-colors">
+                        {exp.title}
+                      </h3>
+                      <p className="text-accent font-medium mb-2">{exp.company}</p>
+                      {exp.placement && (
+                        <p className="text-sm text-muted-foreground italic mb-3">{exp.placement}</p>
+                      )}
+                      <ul className="space-y-2">
+                        {exp.description.map((desc, i) => (
+                          <li key={i} className="text-muted-foreground flex gap-2">
+                            <span className="text-primary mt-1.5">•</span>
+                            <span>{desc}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
-                  
-                  <div className="flex-grow">
-                    <h3 className="font-heading text-xl font-semibold mb-1 group-hover:text-primary transition-colors">
-                      {exp.title}
-                    </h3>
-                    <p className="text-accent font-medium mb-2">{exp.company}</p>
-                    {exp.placement && (
-                      <p className="text-sm text-muted-foreground italic mb-3">{exp.placement}</p>
-                    )}
-                    <ul className="space-y-2">
-                      {exp.description.map((desc, i) => (
-                        <li key={i} className="text-muted-foreground flex gap-2">
-                          <span className="text-primary mt-1.5">•</span>
-                          <span>{desc}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
+                </Card>
+              ))}
+            </div>
+          </ScrollArea>
         </div>
       </div>
     </section>
