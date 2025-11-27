@@ -31,7 +31,7 @@ const Contact = () => {
               </a>
               
               <a 
-                href="tel:+6281284699161"
+                href="https://wa.me/6281284699161"
                 className="flex flex-col items-center gap-3 p-4 rounded-lg hover:bg-primary/10 transition-colors group"
               >
                 <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center group-hover:bg-primary/30 transition-colors">

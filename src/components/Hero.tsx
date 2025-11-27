@@ -46,7 +46,7 @@ const Hero = () => {
               <Mail className="w-5 h-5" />
               <span>tuti.rahmawati.id@gmail.com</span>
             </a>
-            <a href="tel:+6281284699161" className="flex items-center gap-2 hover:text-primary transition-colors">
+            <a href="https://wa.me/6281284699161" className="flex items-center gap-2 hover:text-primary transition-colors">
               <Phone className="w-5 h-5" />
               <span>+62-812-8469-9161</span>
             </a>

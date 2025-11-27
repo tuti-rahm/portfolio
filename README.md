@@ -1,73 +1,76 @@
-# Welcome to your Lovable project
+# Portfolio Website
 
-## Project info
+This is a personal portfolio website built with modern web technologies.
 
-**URL**: https://lovable.dev/projects/7f0cdaec-db57-4ce2-b434-80d219914ddd
+## Features
 
-## How can I edit this code?
+*   **Responsive Design**: Looks great on all devices.
+*   **Component-Based**: Built with React and shadcn-ui components.
+*   **Type-Safe**: Written in TypeScript.
+*   **Fast**: Uses Vite for a fast development experience.
 
-There are several ways of editing your application.
+## Technologies Used
 
-**Use Lovable**
+*   **Vite**: Next-generation frontend tooling.
+*   **React**: A JavaScript library for building user interfaces.
+*   **TypeScript**: A typed superset of JavaScript that compiles to plain JavaScript.
+*   **shadcn-ui**: Re-usable components built using Radix UI and Tailwind CSS.
+*   **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
+*   **React Router**: For routing and navigation.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/7f0cdaec-db57-4ce2-b434-80d219914ddd) and start prompting.
+## Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+*   [Node.js](httpss://nodejs.org/) (v18 or higher recommended)
+*   [pnpm](httpss://pnpm.io/installation)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Installation and Running
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1.  **Clone the repository:**
 
-Follow these steps:
+    ```bash
+    git clone <YOUR_GIT_URL>
+    cd portofoliotuti
+    ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2.  **Install dependencies:**
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+    ```bash
+    pnpm install
+    ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+3.  **Run the development server:**
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+    ```bash
+    pnpm run dev
+    ```
+
+    This will start the development server at `http://localhost:5173`.
+
+## Project Structure
+
 ```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/7f0cdaec-db57-4ce2-b434-80d219914ddd) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+/
+├── public/               # Static assets
+├── src/
+│   ├── components/       # Reusable components
+│   │   ├── ui/           # shadcn-ui components
+│   │   ├── Contact.tsx
+│   │   ├── Education.tsx
+│   │   ├── Experience.tsx
+│   │   ├── Footer.tsx
+│   │   ├── Hero.tsx
+│   │   └── ...
+│   ├── hooks/            # Custom React hooks
+│   ├── lib/              # Utility functions
+│   ├── pages/            # Page components
+│   │   ├── Index.tsx
+│   │   └── NotFound.tsx
+│   ├── App.tsx           # Main App component with routing
+│   ├── main.tsx          # Entry point
+│   └── ...
+├── package.json          # Project metadata and dependencies
+├── vite.config.ts        # Vite configuration
+└── ...
+```
