@@ -7,7 +7,7 @@ const Footer = () => {
             © {new Date().getFullYear()} Tuti Rahmawati. All rights reserved.
           </p>
           <p className="text-muted-foreground text-sm">
-            Project Manager • Scrum Master • Agile Coach
+            AI Solutions Builder • Agile / SAFe • IT Delivery
           </p>
         </div>
       </div>

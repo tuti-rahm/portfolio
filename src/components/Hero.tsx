@@ -32,13 +32,14 @@ const Hero = () => {
           </div>
           
           <p className="text-2xl md:text-3xl font-heading font-semibold text-foreground mb-6 animate-fade-in-delay">
-            Experienced & Certified Project Manager
+            Agile / SAFe Delivery & AI Solutions Builder
           </p>
           
           <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in-delay">
-            Over 21 years in IT Professional Industries. I excel in project management, budgeting, and team coordination, 
-            ensuring projects meet their objectives while adhering to timeline and budget constraints. My collaborative 
-            approach with clients and coaching of teams on Agile methodologies leads to successful project outcomes.
+            IT professional with 22+ years of experience across software development, business/system analysis,
+            project management, Scrum, and Agile delivery. Currently expanding into AI Solutions Building and business
+            automation, combining deep IT delivery knowledge with hands-on experience designing and building enterprise
+            AI agents in Microsoft Copilot Studio and Power Automate.
           </p>
           
           <div className="flex flex-wrap items-center justify-center gap-6 mb-8 text-muted-foreground animate-fade-in-delay">

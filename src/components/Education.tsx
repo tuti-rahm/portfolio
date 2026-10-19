@@ -6,7 +6,7 @@ const education = [
     degree: "Master in Information Technology",
     institution: "University of Indonesia",
     period: "01/2007 - 01/2009",
-    gpa: "3.5 of 4"
+    gpa: "3.5 / 4.0"
   },
   {
     degree: "Bachelor in Informatics Engineering",
