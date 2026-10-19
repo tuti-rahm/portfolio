@@ -4,12 +4,28 @@ import { ScrollArea } from "./ui/scroll-area";
 
 const experiences = [
   {
-    period: "08/2025 - Present",
+    period: "03/2026 - Present",
+    title: "Scrum Master",
+    company: "PT Berlian Sistem Informasi (BSI)",
+    placement: "SAFe environment • Multiple squads • Azure DevOps",
+    description: [
+      "Manage Agile/SAFe development processes within the dealership product team across multiple squads.",
+      "Facilitate Agile and SAFe events and support teams in maintaining delivery flow, transparency, and alignment.",
+      "Monitor team performance metrics such as velocity and burn-down trends to assess progress and identify improvement areas.",
+      "Actively monitor product quality and delivery readiness within the managed product team.",
+      "Identify and remove impediments, including dependencies and resource constraints, coordinating resolution with Scrum Masters, RTE, Unit Head, and management.",
+      "Encourage team collaboration, accountability, and self-organization while supporting continuous improvement.",
+      "Use Azure DevOps and delivery tracking practices to maintain visibility of work status, follow-ups, risks, and dependencies."
+    ]
+  },
+  {
+    period: "08/2025 - 02/2026",
     title: "Project Manager",
     company: "Valuesion (Val Solusi Indonesia)",
     description: [
-      "Led ClickUp implementation project for CIMB, managing end-to-end delivery from requirement gathering, configuration, to user adoption.",
-      "Designed and deployed customized workflows and dashboards, enhancing visibility, task tracking, and reporting for multiple CIMB teams."
+      "Led ClickUp implementation for CIMB from requirements through configuration, rollout, and user adoption.",
+      "Supported onboarding of 1,300 users within 6 months and achieved an estimated 40–55% annual cost savings.",
+      "Translated business requirements into implementation activities and coordinated stakeholders through delivery."
     ]
   },
   {
@@ -17,21 +33,21 @@ const experiences = [
     title: "Project Manager",
     company: "Mitreka Solusi Indonesia",
     description: [
-      "Enhanced project delivery efficiency by optimizing resource allocation, reducing waste, and addressing bottlenecks.",
-      "Delivered projects on time and under budget by diligently overseeing resource utilization, cost control measures, and scope management.",
-      "Successfully managed multiple projects simultaneously by prioritizing tasks according to urgency, resource availability, and alignment with organizational goals."
+      "Managed software projects, optimizing resource allocation, delivery priorities, and bottleneck resolution.",
+      "Delivered two projects on schedule while coordinating cross-functional teams and client expectations.",
+      "Improved productivity through workload distribution based on team capabilities."
     ]
   },
   {
     period: "04/2024 - 10/2024",
     title: "Scrum Master",
     company: "Insura Media Solusi",
-    placement: "Placement: IBID Digital (PT Balai Lelang Serasi, member of ASTRA)",
+    placement: "Placement: IBID Digital (PT Balai Lelang Serasi, Astra Group)",
     description: [
-      "Facilitated Scrum framework – sprint planning, backlog refinement, daily scrums, sprint reviews, and sprint retrospectives.",
-      "Developed custom Scrum dashboards for better task tracking and transparency within the team.",
-      "Collaborated with Product Owners to refine requirements and ensure alignment with business goals.",
-      "Coached cross-functional teams on Agile principles, leading to an increase in successful project deliveries."
+      "Facilitated Sprint Planning, Backlog Refinement, Daily Scrum, Sprint Review, and Retrospective.",
+      "Developed Scrum dashboards to improve delivery visibility and task tracking.",
+      "Collaborated with Product Owners to refine requirements and align delivery with business goals.",
+      "Coached cross-functional teams on Agile practices and continuous improvement."
     ]
   },
   {
@@ -39,8 +55,8 @@ const experiences = [
     title: "Software Project Manager",
     company: "Dans Multi Pro",
     description: [
-      "Coordinated and supervised development teams for Telkomsel's B2B and B2B2C projects.",
-      "Led operation and support team for Legacy apps support and maintenance."
+      "Coordinated software development teams for Telkomsel B2B and B2B2C projects.",
+      "Led operation and support teams for legacy application support and maintenance."
     ]
   },
   {
@@ -48,7 +64,17 @@ const experiences = [
     title: "Project Manager",
     company: "Phincon",
     description: [
-      "Managed the Telkomsel Payment Gateway project and supported Blibli Genesys."
+      "Managed the Telkomsel Payment Gateway project and supported Blibli Genesys.",
+      "Oversaw support and maintenance projects for government data systems."
+    ]
+  },
+  {
+    period: "05/2019 - 06/2021",
+    title: "Business Analyst / Scrum Master",
+    company: "Infiniti Cipta Teknologi",
+    description: [
+      "Delivered multiple applications in a Scrum environment as Business Analyst and Scrum Master.",
+      "Bridged business requirements, product needs, and software delivery."
     ]
   },
   {
@@ -56,31 +82,15 @@ const experiences = [
     title: "Lecturer",
     company: "Amikom University",
     description: [
-      "Taught courses in informatics engineering and information system."
-    ]
-  },
-  {
-    period: "05/2019 - 06/2021",
-    title: "Scrum Experience",
-    company: "Infiniti Cipta Teknologi",
-    description: [
-      "Delivered multiple applications in a Scrum environment as a Business Analyst and Scrum Master."
-    ]
-  },
-  {
-    period: "12/2017 - 12/2018",
-    title: "SME of Payroll and Reward System",
-    company: "Bank Negara Indonesia",
-    description: [
-      "Served as Subject Matter Expert for Payroll and Reward System."
+      "Taught Informatics Engineering and Information Systems courses."
     ]
   },
   {
     period: "08/2016 - 11/2017",
-    title: "Product Manager/Project Manager",
+    title: "Product Manager / Project Manager",
     company: "Indivara (Jatis Group)",
     description: [
-      "Managed internal project and product as Product Manager/Project Manager."
+      "Managed internal projects and products as Product Manager / Project Manager."
     ]
   },
   {
@@ -104,7 +114,7 @@ const experiences = [
     title: "Oracle Consultant",
     company: "Jatis Solutions",
     description: [
-      "Attended to Oracle consulting needs for various clients."
+      "Handled Oracle consulting needs for various clients."
     ]
   },
   {
@@ -112,31 +122,15 @@ const experiences = [
     title: "Programmer",
     company: "VICO Indonesia",
     description: [
-      "Worked as a PHP programmer for various projects."
+      "Worked as PHP programmer across multiple projects."
     ]
   },
   {
-    period: "06/2005 - 09/2005",
-    title: "System Analyst",
-    company: "QXPoint",
+    period: "2004 - 2005",
+    title: "System Analyst / Programmer / Oracle Developer",
+    company: "QXPoint / indo.com / Sisindosat",
     description: [
-      "Designed and analyzed systems."
-    ]
-  },
-  {
-    period: "03/2005 - 06/2005",
-    title: "Programmer",
-    company: "indo.com",
-    description: [
-      "Performed programming tasks."
-    ]
-  },
-  {
-    period: "08/2004 - 02/2005",
-    title: "Oracle Developer",
-    company: "Sisindosat",
-    description: [
-      "Developed and maintained Oracle solutions."
+      "Worked across system analysis, PHP programming, and Oracle development."
     ]
   }
 ];
