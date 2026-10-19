@@ -2,100 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Design tokens (HSL). Palette:
+   ink #0F1430 · surface #171D3F · line #2B3363 · text #E9ECF7
+   muted #98A0C4 · signal (lilac) #9D8BFF · live (mint) #4FE3C1 */
 
 @layer base {
   :root {
-    --background: 220 26% 14%;
-    --foreground: 210 40% 98%;
+    --background: 231 52% 12%;
+    --foreground: 227 47% 94%;
 
-    --card: 220 24% 18%;
-    --card-foreground: 210 40% 98%;
+    --surface: 231 46% 17%;
+    --line: 231 39% 28%;
+    --signal: 249 100% 77%;
+    --live: 166 73% 60%;
 
-    --popover: 220 26% 16%;
-    --popover-foreground: 210 40% 98%;
+    --card: 231 46% 17%;
+    --card-foreground: 227 47% 94%;
 
-    --primary: 189 94% 43%;
-    --primary-foreground: 220 26% 14%;
+    --popover: 231 46% 17%;
+    --popover-foreground: 227 47% 94%;
 
-    --secondary: 220 20% 25%;
-    --secondary-foreground: 210 40% 98%;
+    --primary: 249 100% 77%;
+    --primary-foreground: 231 52% 12%;
 
-    --muted: 220 20% 22%;
-    --muted-foreground: 217 10% 64%;
+    --secondary: 231 39% 28%;
+    --secondary-foreground: 227 47% 94%;
 
-    --accent: 45 93% 58%;
-    --accent-foreground: 220 26% 14%;
+    --muted: 231 46% 17%;
+    --muted-foreground: 229 27% 68%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --accent: 166 73% 60%;
+    --accent-foreground: 231 52% 12%;
 
-    --border: 220 20% 25%;
-    --input: 220 20% 25%;
-    --ring: 189 94% 43%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 227 47% 94%;
 
-    --radius: 0.75rem;
-    
-    --gradient-hero: linear-gradient(135deg, hsl(189 94% 43% / 0.2), hsl(220 26% 14%));
-    --gradient-card: linear-gradient(145deg, hsl(220 24% 18%), hsl(220 20% 22%));
-    --shadow-glow: 0 0 40px hsl(189 94% 43% / 0.15);
-    --shadow-card: 0 4px 20px hsl(220 26% 10% / 0.4);
+    --border: 231 39% 28%;
+    --input: 231 39% 28%;
+    --ring: 249 100% 77%;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --radius: 0.5rem;
   }
 
   .dark {
-    --background: 220 26% 14%;
-    --foreground: 210 40% 98%;
-
-    --card: 220 24% 18%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 220 26% 16%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 189 94% 43%;
-    --primary-foreground: 220 26% 14%;
-
-    --secondary: 220 20% 25%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 220 20% 22%;
-    --muted-foreground: 217 10% 64%;
-
-    --accent: 45 93% 58%;
-    --accent-foreground: 220 26% 14%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 220 20% 25%;
-    --input: 220 20% 25%;
-    --ring: 189 94% 43%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: 231 52% 12%;
+    --foreground: 227 47% 94%;
   }
 }
 
@@ -104,47 +55,77 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
   body {
-    @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "ss01";
   }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Outfit', sans-serif;
+
+  ::selection {
+    background: hsl(var(--signal) / 0.35);
   }
-  
-  .animate-fade-in {
-    animation: fadeIn 0.6s ease-out forwards;
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--signal));
+    outline-offset: 3px;
+    border-radius: 4px;
   }
-  
-  .animate-fade-in-delay {
-    animation: fadeIn 0.6s ease-out 0.2s forwards;
-    opacity: 0;
-  }
-  
-  .animate-slide-up {
-    animation: slideUp 0.6s ease-out forwards;
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
     }
   }
-  
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+}
+
+@layer components {
+  /* Faint blueprint grid behind the hero */
+  .hero-grid {
+    background-image:
+      linear-gradient(hsl(var(--line) / 0.35) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--line) / 0.35) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 80% 70% at 30% 40%, black 30%, transparent 75%);
+  }
+
+  /* The one orchestrated moment: career track draws left to right on load */
+  .track-fill {
+    transform-origin: left center;
+    animation: track-draw 1.6s cubic-bezier(0.65, 0, 0.35, 1) 0.3s both;
+  }
+
+  .track-label {
+    animation: track-label-in 0.5s ease-out both;
+  }
+
+  .now-pulse {
+    animation: now-pulse 2.4s ease-out 2s infinite;
+  }
+
+  @keyframes track-draw {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
+  @keyframes track-label-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes now-pulse {
+    0% { box-shadow: 0 0 0 0 hsl(var(--live) / 0.55); }
+    70% { box-shadow: 0 0 0 10px hsl(var(--live) / 0); }
+    100% { box-shadow: 0 0 0 0 hsl(var(--live) / 0); }
   }
 }

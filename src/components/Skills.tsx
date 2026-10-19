@@ -1,144 +1,97 @@
-import { Award, Bot, Workflow, Database, Code2, Briefcase, GitBranch } from "lucide-react";
-import { Card } from "./ui/card";
-import { Badge } from "./ui/badge";
+import { Bot, Workflow } from "lucide-react";
 
-const skillCategories = [
-  {
-    category: "AI & Agent Building",
-    icon: Bot,
-    highlight: true,
-    skills: [
-      "Microsoft Copilot Studio",
-      "AI agent design",
-      "Prompt engineering",
-      "Knowledge-source design",
-      "Multi-agent concepts",
-      "AI use-case discovery"
-    ]
-  },
-  {
-    category: "Automation",
-    icon: Workflow,
-    highlight: true,
-    skills: [
-      "Microsoft Power Automate",
-      "n8n",
-      "Workflow automation",
-      "API integration"
-    ]
-  },
+const aiSkills = {
+  agents: [
+    "Microsoft Copilot Studio",
+    "AI agent design",
+    "Prompt engineering",
+    "Knowledge-source design",
+    "Multi-agent concepts",
+    "AI use-case discovery",
+  ],
+  automation: ["Microsoft Power Automate", "n8n", "Workflow automation", "API integration"],
+};
+
+const foundations = [
   {
     category: "Delivery & DevOps",
-    icon: GitBranch,
-    skills: [
-      "SAFe",
-      "Scrum",
-      "Agile Coaching",
-      "Azure DevOps",
-      "Jira",
-      "ClickUp",
-      "SDLC",
-      "Sprint Planning",
-      "Delivery metrics"
-    ]
+    skills: ["SAFe", "Scrum", "Agile coaching", "Azure DevOps", "Jira", "ClickUp", "SDLC", "Sprint planning", "Delivery metrics"],
   },
   {
-    category: "Business & Product",
-    icon: Briefcase,
-    skills: [
-      "Business/System Analysis",
-      "Requirements gathering",
-      "SRS",
-      "PRD",
-      "User stories",
-      "MVP definition",
-      "Prioritization",
-      "Product lifecycle"
-    ]
+    category: "Business & product",
+    skills: ["Business/system analysis", "Requirements gathering", "SRS", "PRD", "User stories", "MVP definition", "Prioritization", "Product lifecycle"],
   },
   {
-    category: "Data & Reporting",
-    icon: Database,
-    skills: [
-      "Power BI",
-      "SQL",
-      "Oracle",
-      "MySQL",
-      "SQL Server",
-      "Project dashboards",
-      "Delivery analytics"
-    ]
+    category: "Data & reporting",
+    skills: ["Power BI", "SQL", "Oracle", "MySQL", "SQL Server", "Project dashboards", "Delivery analytics"],
   },
   {
-    category: "Technical Background",
-    icon: Code2,
-    skills: [
-      "PHP",
-      "Oracle HRMS/Payroll",
-      "Software development",
-      "System analysis",
-      "Enterprise application delivery"
-    ]
-  }
+    category: "Technical background",
+    skills: ["PHP", "Oracle HRMS/Payroll", "Software development", "System analysis", "Enterprise application delivery"],
+  },
 ];
+
+const Chip = ({ children }: { children: string }) => (
+  <li className="rounded-md border border-live/30 bg-live/[0.06] px-3 py-1.5 text-sm text-foreground">
+    {children}
+  </li>
+);
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-20 bg-muted/20">
-      <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-center gap-3 mb-12">
-            <Award className="w-8 h-8 text-primary" />
-            <h2 className="font-heading text-4xl md:text-5xl font-bold">Skills & Expertise</h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {skillCategories.map((category, index) => {
-              const Icon = category.icon;
-              return (
-                <Card
-                  key={index}
-                  className={`p-6 bg-card transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 ${
-                    category.highlight
-                      ? "border-accent/30 hover:border-accent/50"
-                      : "border-border hover:border-primary/30"
-                  }`}
-                >
-                  <div className="flex items-center gap-2 mb-4">
-                    <Icon className={`w-5 h-5 ${category.highlight ? "text-accent" : "text-primary"}`} />
-                    <h3
-                      className={`font-heading text-xl font-semibold ${
-                        category.highlight ? "text-accent" : "text-primary"
-                      }`}
-                    >
-                      {category.category}
-                    </h3>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {category.skills.map((skill, i) => (
-                      <Badge
-                        key={i}
-                        variant="outline"
-                        className="text-sm font-medium bg-muted/30 text-foreground border-border"
-                      >
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
-
-          <Card className="mt-6 p-6 bg-card border-border">
-            <h3 className="font-heading text-xl font-semibold mb-4">Languages</h3>
-            <div className="flex gap-4">
-              <Badge variant="outline" className="bg-primary/20 text-primary border-primary/30 text-sm">
-                English - Professional working proficiency
-              </Badge>
-            </div>
-          </Card>
+    <section id="skills" className="border-t border-line/60 bg-surface/40">
+      <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
+        <div className="max-w-2xl">
+          <h2 className="text-3xl font-bold tracking-[-0.025em] md:text-5xl">Skills</h2>
+          <p className="mt-4 text-muted-foreground">
+            Two decades of delivery practice, now pointed at AI agents and automation.
+          </p>
         </div>
+
+        <div className="mt-14 rounded-xl border border-live/30 bg-background/60 p-6 md:p-10">
+          <div className="grid gap-10 md:grid-cols-2">
+            <div>
+              <h3 className="flex items-center gap-2.5 text-lg font-semibold text-live">
+                <Bot className="h-5 w-5" aria-hidden="true" />
+                AI & agent building
+              </h3>
+              <ul className="mt-5 flex flex-wrap gap-2">
+                {aiSkills.agents.map((s) => (
+                  <Chip key={s}>{s}</Chip>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="flex items-center gap-2.5 text-lg font-semibold text-live">
+                <Workflow className="h-5 w-5" aria-hidden="true" />
+                Automation
+              </h3>
+              <ul className="mt-5 flex flex-wrap gap-2">
+                {aiSkills.automation.map((s) => (
+                  <Chip key={s}>{s}</Chip>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          {foundations.map((group) => (
+            <div key={group.category}>
+              <h3 className="border-b border-line pb-3 font-semibold text-signal">{group.category}</h3>
+              <ul className="mt-4 space-y-2 text-sm text-foreground/80">
+                {group.skills.map((s) => (
+                  <li key={s}>{s}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <p className="mt-14 text-sm text-muted-foreground">
+          <span className="font-medium text-foreground">Languages:</span> English, professional
+          working proficiency
+        </p>
       </div>
     </section>
   );

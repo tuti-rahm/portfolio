@@ -1,8 +1,12 @@
-import { Briefcase, Calendar } from "lucide-react";
-import { Card } from "./ui/card";
-import { ScrollArea } from "./ui/scroll-area";
+type Role = {
+  period: string;
+  title: string;
+  company: string;
+  placement?: string;
+  description: string[];
+};
 
-const experiences = [
+const experiences: Role[] = [
   {
     period: "03/2026 - Present",
     title: "Scrum Master",
@@ -135,53 +139,87 @@ const experiences = [
   }
 ];
 
+// Roles from 2019 onward are shown in full; earlier roles as a compact list.
+const recent = experiences.slice(0, 8);
+const earlier = experiences.slice(8);
+
 const Experience = () => {
   return (
-    <section id="experience" className="py-20 relative">
-      <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-3 mb-8">
-            <Briefcase className="w-8 h-8 text-primary" />
-            <h2 className="font-heading text-4xl md:text-5xl font-bold">Experience</h2>
-          </div>
-          
-          <ScrollArea className="h-[600px] pr-4">
-            <div className="space-y-8">
-              {experiences.map((exp, index) => (
-                <Card 
-                  key={index} 
-                  className="p-6 bg-card border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 group"
+    <section id="experience" className="border-t border-line/60">
+      <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
+        <div className="max-w-2xl">
+          <h2 className="text-3xl font-bold tracking-[-0.025em] md:text-5xl">Experience</h2>
+          <p className="mt-4 text-muted-foreground">
+            From PHP programmer to Scrum Master in a SAFe setup, across telco, banking, energy and
+            automotive clients.
+          </p>
+        </div>
+
+        <ol className="mt-14 md:mt-16">
+          {recent.map((exp, index) => {
+            const isCurrent = index === 0;
+            return (
+              <li key={exp.company + exp.period} className="grid gap-x-10 md:grid-cols-[11rem_1fr]">
+                <p
+                  className={`pb-2 pt-1 text-sm tabular-nums md:pb-0 md:text-right ${
+                    isCurrent ? "font-medium text-live" : "text-muted-foreground"
+                  }`}
                 >
-                  <div className="flex flex-col md:flex-row md:items-start gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="flex items-center gap-2 bg-primary/10 border border-primary/20 px-3 py-1.5 rounded-full">
-                        <Calendar className="w-4 h-4 text-primary" />
-                        <span className="text-sm font-medium text-primary">{exp.period}</span>
-                      </div>
-                    </div>
-                    
-                    <div className="flex-grow">
-                      <h3 className="font-heading text-xl font-semibold mb-1 group-hover:text-primary transition-colors">
-                        {exp.title}
-                      </h3>
-                      <p className="text-accent font-medium mb-2">{exp.company}</p>
-                      {exp.placement && (
-                        <p className="text-sm text-muted-foreground italic mb-3">{exp.placement}</p>
-                      )}
-                      <ul className="space-y-2">
-                        {exp.description.map((desc, i) => (
-                          <li key={i} className="text-muted-foreground flex gap-2">
-                            <span className="text-primary mt-1.5">•</span>
-                            <span>{desc}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </Card>
+                  {exp.period.replace(" - ", " – ")}
+                </p>
+
+                <div
+                  className={`relative border-l-2 border-line pl-7 ${
+                    index === recent.length - 1 ? "pb-2" : "pb-12"
+                  }`}
+                >
+                  <span
+                    className={`absolute -left-[7px] top-2 h-3 w-3 rounded-full ${
+                      isCurrent ? "now-pulse bg-live" : "border-2 border-signal bg-background"
+                    }`}
+                    aria-hidden="true"
+                  />
+                  <h3 className="text-xl font-semibold tracking-tight">{exp.title}</h3>
+                  <p className="mt-1 font-medium text-signal">{exp.company}</p>
+                  {exp.placement && (
+                    <p className="mt-1 text-sm text-muted-foreground">{exp.placement}</p>
+                  )}
+                  <ul className="mt-4 max-w-[68ch] space-y-2 text-[0.95rem] leading-relaxed text-foreground/80">
+                    {exp.description.map((desc, i) => (
+                      <li key={i} className="relative pl-4">
+                        <span
+                          className="absolute left-0 top-[0.7em] h-1 w-1 rounded-full bg-muted-foreground"
+                          aria-hidden="true"
+                        />
+                        {desc}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+            );
+          })}
+        </ol>
+
+        <div className="mt-16 grid gap-x-10 md:grid-cols-[11rem_1fr]">
+          <p className="pb-4 text-sm text-muted-foreground md:text-right">2004 – 2017</p>
+          <div>
+            <h3 className="text-lg font-semibold">Earlier roles</h3>
+            <ul className="mt-4 divide-y divide-line/70 border-y border-line/70">
+              {earlier.map((exp) => (
+                <li
+                  key={exp.company + exp.period}
+                  className="grid gap-1 py-3.5 text-sm sm:grid-cols-[8.5rem_1fr_auto] sm:items-baseline sm:gap-6"
+                >
+                  <span className="tabular-nums text-muted-foreground">
+                    {exp.period.replace(" - ", " – ")}
+                  </span>
+                  <span className="font-medium">{exp.title}</span>
+                  <span className="text-muted-foreground sm:text-right">{exp.company}</span>
+                </li>
               ))}
-            </div>
-          </ScrollArea>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
