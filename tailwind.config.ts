@@ -14,10 +14,16 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        heading: ['Outfit', 'sans-serif'],
+        sans: ['Sora', 'system-ui', 'sans-serif'],
+        heading: ['Sora', 'system-ui', 'sans-serif'],
       },
       colors: {
+        surface: "hsl(var(--surface))",
+        line: "hsl(var(--line))",
+        signal: "hsl(var(--signal))",
+        live: "hsl(var(--live))",
+        rose: "hsl(var(--rose))",
+        spark: "hsl(var(--spark))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

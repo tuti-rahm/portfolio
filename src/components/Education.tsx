@@ -1,92 +1,69 @@
-import { GraduationCap, Award as AwardIcon } from "lucide-react";
-import { Card } from "./ui/card";
-
-const education = [
-  {
-    degree: "Master in Information Technology",
-    institution: "University of Indonesia",
-    period: "01/2007 - 01/2009",
-    gpa: "3.5 / 4.0"
-  },
-  {
-    degree: "Bachelor in Informatics Engineering",
-    institution: "Sepuluh Nopember Institute of Technology",
-    period: "07/1997 - 06/2004"
-  }
-];
-
 const certifications = [
   {
-    name: "Professional Scrum Master (PSM) I",
+    name: "Professional Scrum Master I (PSM I)",
     issuer: "Scrum.org",
-    period: "03/2023 - Present"
+    validity: "Since 03/2023",
   },
   {
     name: "Certified ICT Project Manager (CITPM)",
-    issuer: "National Professional Certification Agency (Badan Nasional Sertifikasi Profesi)",
-    period: "08/2024 - 08/2027"
+    issuer: "Badan Nasional Sertifikasi Profesi (BNSP)",
+    validity: "Valid 08/2024 – 08/2027",
   },
   {
     name: "Certified System Analyst (CSA)",
-    issuer: "National Professional Certification Agency (Badan Nasional Sertifikasi Profesi)",
-    period: "08/2024 - 08/2027"
-  }
+    issuer: "Badan Nasional Sertifikasi Profesi (BNSP)",
+    validity: "Valid 08/2024 – 08/2027",
+  },
+];
+
+const education = [
+  {
+    degree: "Master of Information Technology",
+    institution: "University of Indonesia",
+    year: "2009",
+    note: "GPA 3.5 / 4.0",
+  },
+  {
+    degree: "Bachelor of Informatics Engineering",
+    institution: "Sepuluh Nopember Institute of Technology (ITS)",
+    year: "2004",
+  },
 ];
 
 const Education = () => {
   return (
-    <section id="education" className="py-20">
-      <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Education Section */}
-            <div>
-              <div className="flex items-center gap-3 mb-8">
-                <GraduationCap className="w-8 h-8 text-primary" />
-                <h2 className="font-heading text-4xl font-bold">Education</h2>
-              </div>
-              
-              <div className="space-y-6">
-                {education.map((edu, index) => (
-                  <Card 
-                    key={index}
-                    className="p-6 bg-card border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
-                  >
-                    <h3 className="font-heading text-xl font-semibold mb-2">
-                      {edu.degree}
-                    </h3>
-                    <p className="text-accent font-medium mb-2">{edu.institution}</p>
-                    <p className="text-sm text-muted-foreground mb-1">{edu.period}</p>
-                    {edu.gpa && (
-                      <p className="text-sm text-primary font-medium">GPA: {edu.gpa}</p>
-                    )}
-                  </Card>
-                ))}
-              </div>
-            </div>
-            
-            {/* Certifications Section */}
-            <div>
-              <div className="flex items-center gap-3 mb-8">
-                <AwardIcon className="w-8 h-8 text-accent" />
-                <h2 className="font-heading text-4xl font-bold">Certifications</h2>
-              </div>
-              
-              <div className="space-y-6">
-                {certifications.map((cert, index) => (
-                  <Card 
-                    key={index}
-                    className="p-6 bg-card border-border hover:border-accent/30 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10"
-                  >
-                    <h3 className="font-heading text-lg font-semibold mb-2 text-accent">
-                      {cert.name}
-                    </h3>
-                    <p className="text-foreground font-medium mb-2">{cert.issuer}</p>
-                    <p className="text-sm text-muted-foreground">{cert.period}</p>
-                  </Card>
-                ))}
-              </div>
-            </div>
+    <section id="credentials" className="border-t border-line/60">
+      <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
+        <h2 className="text-3xl font-bold tracking-[-0.025em] md:text-5xl">Credentials</h2>
+
+        <div className="mt-14 grid gap-14 md:grid-cols-2 md:gap-16">
+          <div>
+            <h3 className="border-b-2 border-signal/40 pb-3 font-semibold text-signal">Certifications</h3>
+            <ul className="divide-y divide-line/70">
+              {certifications.map((cert) => (
+                <li key={cert.name} className="py-5">
+                  <p className="font-semibold">{cert.name}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">{cert.issuer}</p>
+                  <p className="mt-1 text-sm tabular-nums text-foreground/70">{cert.validity}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="border-b-2 border-spark/40 pb-3 font-semibold text-spark">Education</h3>
+            <ul className="divide-y divide-line/70">
+              {education.map((edu) => (
+                <li key={edu.degree} className="flex items-baseline justify-between gap-6 py-5">
+                  <div>
+                    <p className="font-semibold">{edu.degree}</p>
+                    <p className="mt-1 text-sm text-muted-foreground">{edu.institution}</p>
+                    {edu.note && <p className="mt-1 text-sm text-foreground/70">{edu.note}</p>}
+                  </div>
+                  <span className="shrink-0 text-sm tabular-nums text-muted-foreground">{edu.year}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

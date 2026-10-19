@@ -2,100 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Design tokens (HSL). Palette:
+   black #000000, surface #0E0E12, line #26262E, text #F2F2F5, muted #9A9AA6
+   accents: signal (amber) #FFB547, rose (coral) #FF7A7A,
+            spark (violet) #A78BFA, live (mint) #4FE3C1 */
 
 @layer base {
   :root {
-    --background: 220 26% 14%;
-    --foreground: 210 40% 98%;
+    --background: 0 0% 0%;
+    --foreground: 240 18% 95%;
 
-    --card: 220 24% 18%;
-    --card-foreground: 210 40% 98%;
+    --surface: 240 12% 6%;
+    --line: 240 10% 16%;
+    --signal: 36 100% 64%;
+    --rose: 0 100% 74%;
+    --spark: 255 92% 76%;
+    --live: 166 73% 60%;
 
-    --popover: 220 26% 16%;
-    --popover-foreground: 210 40% 98%;
+    --card: 240 12% 6%;
+    --card-foreground: 240 18% 95%;
 
-    --primary: 189 94% 43%;
-    --primary-foreground: 220 26% 14%;
+    --popover: 240 12% 6%;
+    --popover-foreground: 240 18% 95%;
 
-    --secondary: 220 20% 25%;
-    --secondary-foreground: 210 40% 98%;
+    --primary: 36 100% 64%;
+    --primary-foreground: 0 0% 0%;
 
-    --muted: 220 20% 22%;
-    --muted-foreground: 217 10% 64%;
+    --secondary: 240 10% 16%;
+    --secondary-foreground: 240 18% 95%;
 
-    --accent: 45 93% 58%;
-    --accent-foreground: 220 26% 14%;
+    --muted: 240 12% 6%;
+    --muted-foreground: 240 6% 63%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --accent: 166 73% 60%;
+    --accent-foreground: 0 0% 0%;
 
-    --border: 220 20% 25%;
-    --input: 220 20% 25%;
-    --ring: 189 94% 43%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 240 18% 95%;
 
-    --radius: 0.75rem;
-    
-    --gradient-hero: linear-gradient(135deg, hsl(189 94% 43% / 0.2), hsl(220 26% 14%));
-    --gradient-card: linear-gradient(145deg, hsl(220 24% 18%), hsl(220 20% 22%));
-    --shadow-glow: 0 0 40px hsl(189 94% 43% / 0.15);
-    --shadow-card: 0 4px 20px hsl(220 26% 10% / 0.4);
+    --border: 240 10% 16%;
+    --input: 240 10% 16%;
+    --ring: 36 100% 64%;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --radius: 0.5rem;
   }
 
   .dark {
-    --background: 220 26% 14%;
-    --foreground: 210 40% 98%;
-
-    --card: 220 24% 18%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 220 26% 16%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 189 94% 43%;
-    --primary-foreground: 220 26% 14%;
-
-    --secondary: 220 20% 25%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 220 20% 22%;
-    --muted-foreground: 217 10% 64%;
-
-    --accent: 45 93% 58%;
-    --accent-foreground: 220 26% 14%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 220 20% 25%;
-    --input: 220 20% 25%;
-    --ring: 189 94% 43%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: 0 0% 0%;
+    --foreground: 240 18% 95%;
   }
 }
 
@@ -104,47 +58,77 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
   body {
-    @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "ss01";
   }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Outfit', sans-serif;
+
+  ::selection {
+    background: hsl(var(--signal) / 0.35);
   }
-  
-  .animate-fade-in {
-    animation: fadeIn 0.6s ease-out forwards;
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--signal));
+    outline-offset: 3px;
+    border-radius: 4px;
   }
-  
-  .animate-fade-in-delay {
-    animation: fadeIn 0.6s ease-out 0.2s forwards;
-    opacity: 0;
-  }
-  
-  .animate-slide-up {
-    animation: slideUp 0.6s ease-out forwards;
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
     }
   }
-  
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+}
+
+@layer components {
+  /* Faint blueprint grid behind the hero */
+  .hero-grid {
+    background-image:
+      linear-gradient(hsl(var(--line) / 0.6) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--line) / 0.6) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 80% 70% at 30% 40%, black 30%, transparent 75%);
+  }
+
+  /* The one orchestrated moment: career track draws left to right on load */
+  .track-fill {
+    transform-origin: left center;
+    animation: track-draw 1.6s cubic-bezier(0.65, 0, 0.35, 1) 0.3s both;
+  }
+
+  .track-label {
+    animation: track-label-in 0.5s ease-out both;
+  }
+
+  .now-pulse {
+    animation: now-pulse 2.4s ease-out 2s infinite;
+  }
+
+  @keyframes track-draw {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
+  @keyframes track-label-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes now-pulse {
+    0% { box-shadow: 0 0 0 0 hsl(var(--live) / 0.55); }
+    70% { box-shadow: 0 0 0 10px hsl(var(--live) / 0); }
+    100% { box-shadow: 0 0 0 0 hsl(var(--live) / 0); }
   }
 }
