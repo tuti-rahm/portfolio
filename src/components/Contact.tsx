@@ -7,6 +7,10 @@ const Contact = () => {
         className="pointer-events-none absolute -right-40 -top-40 h-[28rem] w-[28rem] rounded-full bg-signal/10 blur-3xl"
         aria-hidden="true"
       />
+      <div
+        className="pointer-events-none absolute -bottom-40 left-1/4 h-80 w-80 rounded-full bg-rose/10 blur-3xl"
+        aria-hidden="true"
+      />
       <div className="relative mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
         <h2 className="max-w-3xl text-3xl font-bold tracking-[-0.025em] md:text-5xl md:leading-[1.1]">
           Need steady Agile delivery or a practical AI agent? Let's talk.

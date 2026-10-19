@@ -3,50 +3,53 @@
 @tailwind utilities;
 
 /* Design tokens (HSL). Palette:
-   ink #0F1430 · surface #171D3F · line #2B3363 · text #E9ECF7
-   muted #98A0C4 · signal (lilac) #9D8BFF · live (mint) #4FE3C1 */
+   black #000000, surface #0E0E12, line #26262E, text #F2F2F5, muted #9A9AA6
+   accents: signal (amber) #FFB547, rose (coral) #FF7A7A,
+            spark (violet) #A78BFA, live (mint) #4FE3C1 */
 
 @layer base {
   :root {
-    --background: 231 52% 12%;
-    --foreground: 227 47% 94%;
+    --background: 0 0% 0%;
+    --foreground: 240 18% 95%;
 
-    --surface: 231 46% 17%;
-    --line: 231 39% 28%;
-    --signal: 249 100% 77%;
+    --surface: 240 12% 6%;
+    --line: 240 10% 16%;
+    --signal: 36 100% 64%;
+    --rose: 0 100% 74%;
+    --spark: 255 92% 76%;
     --live: 166 73% 60%;
 
-    --card: 231 46% 17%;
-    --card-foreground: 227 47% 94%;
+    --card: 240 12% 6%;
+    --card-foreground: 240 18% 95%;
 
-    --popover: 231 46% 17%;
-    --popover-foreground: 227 47% 94%;
+    --popover: 240 12% 6%;
+    --popover-foreground: 240 18% 95%;
 
-    --primary: 249 100% 77%;
-    --primary-foreground: 231 52% 12%;
+    --primary: 36 100% 64%;
+    --primary-foreground: 0 0% 0%;
 
-    --secondary: 231 39% 28%;
-    --secondary-foreground: 227 47% 94%;
+    --secondary: 240 10% 16%;
+    --secondary-foreground: 240 18% 95%;
 
-    --muted: 231 46% 17%;
-    --muted-foreground: 229 27% 68%;
+    --muted: 240 12% 6%;
+    --muted-foreground: 240 6% 63%;
 
     --accent: 166 73% 60%;
-    --accent-foreground: 231 52% 12%;
+    --accent-foreground: 0 0% 0%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 227 47% 94%;
+    --destructive-foreground: 240 18% 95%;
 
-    --border: 231 39% 28%;
-    --input: 231 39% 28%;
-    --ring: 249 100% 77%;
+    --border: 240 10% 16%;
+    --input: 240 10% 16%;
+    --ring: 36 100% 64%;
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 231 52% 12%;
-    --foreground: 227 47% 94%;
+    --background: 0 0% 0%;
+    --foreground: 240 18% 95%;
   }
 }
 
@@ -93,8 +96,8 @@
   /* Faint blueprint grid behind the hero */
   .hero-grid {
     background-image:
-      linear-gradient(hsl(var(--line) / 0.35) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(var(--line) / 0.35) 1px, transparent 1px);
+      linear-gradient(hsl(var(--line) / 0.6) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--line) / 0.6) 1px, transparent 1px);
     background-size: 56px 56px;
     mask-image: radial-gradient(ellipse 80% 70% at 30% 40%, black 30%, transparent 75%);
   }

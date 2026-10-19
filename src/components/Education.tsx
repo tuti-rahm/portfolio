@@ -38,7 +38,7 @@ const Education = () => {
 
         <div className="mt-14 grid gap-14 md:grid-cols-2 md:gap-16">
           <div>
-            <h3 className="border-b border-line pb-3 font-semibold text-signal">Certifications</h3>
+            <h3 className="border-b-2 border-signal/40 pb-3 font-semibold text-signal">Certifications</h3>
             <ul className="divide-y divide-line/70">
               {certifications.map((cert) => (
                 <li key={cert.name} className="py-5">
@@ -51,7 +51,7 @@ const Education = () => {
           </div>
 
           <div>
-            <h3 className="border-b border-line pb-3 font-semibold text-signal">Education</h3>
+            <h3 className="border-b-2 border-spark/40 pb-3 font-semibold text-spark">Education</h3>
             <ul className="divide-y divide-line/70">
               {education.map((edu) => (
                 <li key={edu.degree} className="flex items-baseline justify-between gap-6 py-5">

@@ -22,6 +22,8 @@ export default {
         line: "hsl(var(--line))",
         signal: "hsl(var(--signal))",
         live: "hsl(var(--live))",
+        rose: "hsl(var(--rose))",
+        spark: "hsl(var(--spark))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

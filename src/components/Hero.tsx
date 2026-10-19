@@ -12,14 +12,16 @@ const eras = [
     detail: "PHP and Oracle development",
     from: 2004,
     to: 2009,
-    bar: "bg-signal/30",
+    bar: "bg-spark",
+    text: "text-spark",
   },
   {
     name: "Oracle consultant",
     detail: "HRMS and payroll implementations",
     from: 2009,
     to: 2016,
-    bar: "bg-signal/55",
+    bar: "bg-rose",
+    text: "text-rose",
   },
   {
     name: "Product, project & Scrum",
@@ -27,6 +29,7 @@ const eras = [
     from: 2016,
     to: 2026,
     bar: "bg-signal",
+    text: "text-signal",
   },
 ];
 
@@ -50,7 +53,7 @@ const CareerTrack = () => (
                 animationDelay: `${0.5 + i * 0.45}s`,
               }}
             >
-              <p className="text-sm font-semibold text-foreground">{era.name}</p>
+              <p className={`text-sm font-semibold ${era.text}`}>{era.name}</p>
               <p className="mt-0.5 text-xs text-muted-foreground">{era.detail}</p>
             </div>
           ))}
@@ -98,7 +101,7 @@ const CareerTrack = () => (
           <p className="text-xs tabular-nums text-muted-foreground">
             {era.from} – {era.to === NOW ? "today" : era.to}
           </p>
-          <p className="font-semibold">{era.name}</p>
+          <p className={`font-semibold ${era.text}`}>{era.name}</p>
           <p className="text-sm text-muted-foreground">{era.detail}</p>
         </li>
       ))}
@@ -116,6 +119,14 @@ const Hero = () => {
   return (
     <section id="top" className="relative overflow-hidden">
       <div className="hero-grid pointer-events-none absolute inset-0" aria-hidden="true" />
+      <div
+        className="pointer-events-none absolute -left-32 top-10 h-80 w-80 rounded-full bg-spark/15 blur-3xl"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute right-0 top-40 h-72 w-72 rounded-full bg-signal/10 blur-3xl"
+        aria-hidden="true"
+      />
 
       <div className="relative mx-auto max-w-6xl px-5 pb-20 pt-16 md:px-8 md:pb-28 md:pt-24">
         <p className="inline-flex items-center gap-2.5 rounded-full border border-line bg-surface/70 px-3.5 py-1.5 text-sm text-muted-foreground">

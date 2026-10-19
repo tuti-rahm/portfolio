@@ -15,18 +15,22 @@ const aiSkills = {
 const foundations = [
   {
     category: "Delivery & DevOps",
+    color: "text-signal border-signal/40",
     skills: ["SAFe", "Scrum", "Agile coaching", "Azure DevOps", "Jira", "ClickUp", "SDLC", "Sprint planning", "Delivery metrics"],
   },
   {
     category: "Business & product",
+    color: "text-rose border-rose/40",
     skills: ["Business/system analysis", "Requirements gathering", "SRS", "PRD", "User stories", "MVP definition", "Prioritization", "Product lifecycle"],
   },
   {
     category: "Data & reporting",
+    color: "text-spark border-spark/40",
     skills: ["Power BI", "SQL", "Oracle", "MySQL", "SQL Server", "Project dashboards", "Delivery analytics"],
   },
   {
     category: "Technical background",
+    color: "text-foreground border-line",
     skills: ["PHP", "Oracle HRMS/Payroll", "Software development", "System analysis", "Enterprise application delivery"],
   },
 ];
@@ -78,7 +82,7 @@ const Skills = () => {
         <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {foundations.map((group) => (
             <div key={group.category}>
-              <h3 className="border-b border-line pb-3 font-semibold text-signal">{group.category}</h3>
+              <h3 className={`border-b-2 pb-3 font-semibold ${group.color}`}>{group.category}</h3>
               <ul className="mt-4 space-y-2 text-sm text-foreground/80">
                 {group.skills.map((s) => (
                   <li key={s}>{s}</li>

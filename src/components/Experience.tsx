@@ -175,7 +175,7 @@ const Experience = () => {
                 >
                   <span
                     className={`absolute -left-[7px] top-2 h-3 w-3 rounded-full ${
-                      isCurrent ? "now-pulse bg-live" : "border-2 border-signal bg-background"
+                      isCurrent ? "now-pulse bg-live" : "border-2 border-spark bg-background"
                     }`}
                     aria-hidden="true"
                   />
